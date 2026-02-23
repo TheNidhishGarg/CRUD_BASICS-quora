@@ -2,10 +2,13 @@ const express = require("express");
 const app = express();
 const  { v4: uuidv4 } = require("uuid");
 uuidv4();
+
+//methodOverride so that we can use Http Verb that are not provided by client
 const methodOverride = require("method-override");
 let port = 8080;
 const path = require("path");
 
+//***************using librarires***************************/
 app.use(express.static(path.join(__dirname,"public")))
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
