@@ -1,5 +1,5 @@
 {
-  "name": "CRUD via Quora",
+  "name": "CRUD_via_Quora",
   "version": "1.0.0",
   "description": "quora basics using rest API creation",
   "main": "index.js",

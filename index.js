@@ -44,10 +44,16 @@ app.get("/posts",(req,res)=>{
     res.render("index.ejs", {posts})
 })
 
+
+//************************************CREATING***********************************/
+//Create Operation via POST request!
 app.get("/posts/new",(req,res)=>{
     res.render("new.ejs")
 })
 
+
+//*******************************READING****************************//
+//Posting the content taken through req.body
 app.post("/posts",(req,res)=>{
     let id = uuidv4();
     let {username,content}=req.body
@@ -55,14 +61,18 @@ app.post("/posts",(req,res)=>{
     res.redirect("/posts")
 })
 
+//Read Operation via Get Request
 app.get("/posts/:id",(req,res)=>{
     let {id}=req.params;
     let post = posts.find((p)=> id=== p.id);
+//Reading that particular element from Array - (post from posts) that has id = query id
+//This part of Matching is important while Reading, Updating, Deleting
+//Basically - To select that particular post we are matching id from req.params to post.id
     res.render("show.ejs",{post})
     console.log(post);
 })
 
-
+//***********************UPDATE*********************/
 //Form To EDIT that Content
 app.get("/posts/:id/edit",(req,res)=>{
     let {id}= req.params;
@@ -80,6 +90,8 @@ app.patch("/posts/:id",(req,res)=>{
     res.redirect("/posts")
 })
 
+
+//**********************DELETE*******************//
 // Delete Request!
 app.delete("/posts/:id",(req,res)=>{
     let {id}=req.params;
