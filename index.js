@@ -22,6 +22,7 @@ app.get("/",(req,res)=>{
     res.render("home.ejs")
 })
 
+//****************Random Post Data****************/
 let posts = [
     {
         id:uuidv4(),
@@ -40,19 +41,21 @@ let posts = [
     }
 ]
 
+
+//*****************Landing Page**********************/
 app.get("/posts",(req,res)=>{
     res.render("index.ejs", {posts})
 })
 
 
-//************************************CREATING***********************************/
+//*********************CREATING*******************/
 //Create Operation via POST request!
 app.get("/posts/new",(req,res)=>{
     res.render("new.ejs")
 })
 
 
-//*******************************READING****************************//
+//******************READING***********************//
 //Posting the content taken through req.body
 app.post("/posts",(req,res)=>{
     let id = uuidv4();
